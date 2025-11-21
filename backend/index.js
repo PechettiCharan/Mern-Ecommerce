@@ -49,10 +49,14 @@ const upload = multer({ storage: storage });
 app.use("/images", express.static("upload/images"));
 
 // Upload Endpoint
+
 app.post("/upload", upload.single("product"), (req, res) => {
+  // Dynamically get current server URL (works on localhost + Render)
+  const baseUrl = `${req.protocol}://${req.get("host")}`;
+
   res.json({
     success: 1,
-    image_url: `${BASE_URL}/images/${req.file.filename}`,
+    image_url: `${baseUrl}/images/${req.file.filename}`,
   });
 });
 
@@ -318,9 +322,9 @@ app.post("/getcart", fetchUser, async (req, res) => {
   res.json(userData.cartData);
 });
 
-app.listen(port, (error) => {
+app.listen(BASE_URL, (error) => {
   if (!error) {
-    console.log(`Server running at ${port}`);
+    console.log(`Server running at ${BASE_URL}`);
   } else {
     console.log(`Error : ${error}`);
   }
