@@ -1,0 +1,29 @@
+### Upload product image
+POST http://localhost:4000/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product"; filename="hand_icon.png"
+Content-Type: image/png
+
+< ../frontend/src/Components/Assets/hand_icon.png
+--WebAppBoundary--
+
+###
+
+### Check server running
+GET http://localhost:4000/
+
+### Add a product
+POST http://localhost:4000/addproduct
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Test Product",
+  "image": "http://localhost:4000/images/hand_icon.png",
+  "category": "men",
+  "new_price": 499,
+  "old_price": 699,
+  "available": true
+}
