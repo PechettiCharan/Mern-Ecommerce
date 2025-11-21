@@ -51,14 +51,15 @@ app.use("/images", express.static("upload/images"));
 // Upload Endpoint
 
 app.post("/upload", upload.single("product"), (req, res) => {
-  // Dynamically get current server URL (works on localhost + Render)
   const baseUrl = `${req.protocol}://${req.get("host")}`;
+  console.log("UPLOAD baseUrl:", baseUrl);   // 👈 add this log
 
   res.json({
     success: 1,
     image_url: `${baseUrl}/images/${req.file.filename}`,
   });
 });
+
 
 // Product Schema & Routes
 
