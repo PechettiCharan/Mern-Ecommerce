@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./Popular.css";
-
 import { Item } from "../Item/Item";
+
+const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
+
+
 
 export const Popular = () => {
   const [popularProducts, serPopularProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/popularinwomen")
+    fetch(`${BASE_URL}/popularinwomen`)
       .then((res) => res.json())
       .then((data) => serPopularProducts(data));
   }, []);

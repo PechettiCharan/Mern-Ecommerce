@@ -2,6 +2,9 @@ import React, { use, useState } from "react";
 import "./AddProduct.css";
 import uploadArea from "../../assets/upload_area.svg";
 
+const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
+
+
 const AddProduct = () => {
   const [image, setImage] = useState(false);
   const [productDetails, setProductDetails] = useState({
@@ -28,7 +31,7 @@ const AddProduct = () => {
     let formData = new FormData();
     formData.append("product", image);
 
-    await fetch("http://localhost:4000/upload", {
+    await fetch(`${BASE_URL}/upload`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -41,7 +44,7 @@ const AddProduct = () => {
     if (responseData.success) {
       product.image = responseData.image_url;
       console.log(product);
-      await fetch("http://localhost:4000/addproduct", {
+      await fetch(`${BASE_URL}/addproduct`, {
         method: "POST",
         headers: {
           Accept: "application/json",

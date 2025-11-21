@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./NewCollections.css";
-
 import { Item } from "../Item/Item";
+
+const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
+
+
 export const NewCollections = () => {
   const [newCollection, setNewCollection] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/newcollections")
+    fetch(`${BASE_URL}/newcollections`)
       .then((res) => res.json())
       .then((data) => setNewCollection(data));
   }, []);

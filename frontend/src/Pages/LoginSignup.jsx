@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./CSS/LoginSignup.css";
 
+const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
+
 export const LoginSignup = () => {
   const [state, setState] = useState("Login");
 
@@ -17,7 +19,7 @@ export const LoginSignup = () => {
   const login = async () => {
     console.log("Login Function Executed", formData);
     let responseData;
-    await fetch("http://localhost:4000/login", {
+    await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -39,7 +41,7 @@ export const LoginSignup = () => {
   const signUp = async () => {
     console.log("signup fun is exectuted", formData);
     let responseData;
-    await fetch("http://localhost:4000/signup", {
+    await fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
