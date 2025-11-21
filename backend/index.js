@@ -14,7 +14,7 @@ const { error } = require("console");
 app.use(express.json());
 app.use(cors());
 
-BASE_URL=https://mern-ecommerce-backend-59xw.onrender.com
+const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
 // Database Connection
 
 mongoose
