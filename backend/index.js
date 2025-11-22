@@ -13,7 +13,7 @@ const { error } = require("console");
 app.use(express.json());
 app.use(cors());
 
-const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
+
 // Database Connection
 
 mongoose
@@ -52,7 +52,7 @@ app.use("/images", express.static("upload/images"));
 
 app.post("/upload", upload.single("product"), (req, res) => {
   const baseUrl = `${req.protocol}://${req.get("host")}`;
-  console.log("UPLOAD baseUrl:", baseUrl);   // 👈 add this log
+  console.log("UPLOAD baseUrl:", baseUrl);  // debug log
 
   res.json({
     success: 1,
