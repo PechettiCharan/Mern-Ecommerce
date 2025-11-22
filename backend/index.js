@@ -13,6 +13,7 @@ const { error } = require("console");
 app.use(express.json());
 app.use(cors());
 
+const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
 // Database Connection
 
 mongoose
@@ -58,7 +59,6 @@ app.post("/upload", upload.single("product"), (req, res) => {
     image_url: `${baseUrl}/images/${req.file.filename}`,
   });
 });
-
 
 // Product Schema & Routes
 
