@@ -4,7 +4,6 @@ import uploadArea from "../../assets/upload_area.svg";
 
 const BASE_URL = "https://mern-ecommerce-backend-59xw.onrender.com";
 
-
 const AddProduct = () => {
   const [image, setImage] = useState(false);
   const [productDetails, setProductDetails] = useState({
