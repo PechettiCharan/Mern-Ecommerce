@@ -322,10 +322,13 @@ app.post("/getcart", fetchUser, async (req, res) => {
   res.json(userData.cartData);
 });
 
-app.listen(BASE_URL, (error) => {
+const port = process.env.PORT || 4000;
+
+app.listen(port, (error) => {
   if (!error) {
-    console.log(`Server running at ${BASE_URL}`);
+    console.log(`Server running at ${port}`);
   } else {
     console.log(`Error : ${error}`);
   }
 });
+
