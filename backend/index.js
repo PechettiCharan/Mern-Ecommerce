@@ -13,7 +13,6 @@ const { error } = require("console");
 app.use(express.json());
 app.use(cors());
 
-
 // Database Connection
 
 mongoose
@@ -52,7 +51,7 @@ app.use("/images", express.static("upload/images"));
 
 app.post("/upload", upload.single("product"), (req, res) => {
   const baseUrl = `${req.protocol}://${req.get("host")}`;
-  console.log("UPLOAD baseUrl:", baseUrl);  // debug log
+  console.log("UPLOAD baseUrl:", baseUrl);
 
   res.json({
     success: 1,
